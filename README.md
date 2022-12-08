@@ -3,7 +3,7 @@ Seeder control software
 
 
 
-https://github.com/StormS0/UE5_Seeder/blob/main/UE.png
+http://www.seeder.com/
 
 
 ![image](https://github.com/StormS0/UE5_Seeder/blob/main/UE.png)
