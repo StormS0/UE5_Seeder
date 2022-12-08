@@ -2,6 +2,32 @@
 Seeder control software
 
 
+
+https://github.com/StormS0/UE5_Seeder/blob/main/UE.png
+
+
+![image](https://github.com/StormS0/UE5_Seeder/blob/main/UE.png)
+
+
+If you use plug-ins, please refer to the following tcp instructions  
+Example 1: MSG   p1c2   
+If you click Ready, it means sending p1c20t.  
+If you click Start, it means sending p1c21t.  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       ------杭州聚视通网络技术有限公司版权所有V1.5
 seeder软件场景远程控制协议
 一、协议类型：TCP/IP 网络协议连接
