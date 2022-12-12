@@ -16,6 +16,44 @@ If you click Start, it means sending p1c21t.
 
 
 
+EN:
+      ------Hangzhou jushitong Network Technology Co., Ltd. copyright v1.5
+Remote control protocol of seeder software scene
+1、 Protocol type: TCP / IP network protocol connection
+Remote: client (external control device)
+Local: server (seeder robot)
+Binding port: default (5000) adjustable in the seeder software interface
+Note: different robot devices correspond to different ports
+2、 Agreement rules
+1. Keep your heart beating
+Function: judge whether the two parties are connected.
+Content: send the "heart \ R \ n" character back and forth to keep the heartbeat. The robot device sends the character 'heart \ R \ n' by default.
+2. Data format:
+Packet: P < parameter 1 > C < parameter 2 > T < parameter 3 > \ R \ n (ASCII)
+Description: the data packet starts with 'p', ends with a carriage return character ('\ R') and a line feed character ('\ n'), and takes the characters' p ',' C 'and't' as the parameter intervals.
+< parameter 1 >: indicates the program number range: 1-32 (ASCII)
+< parameter 2 >: indicates the range of serial number: 10, 11, 20, 21..... 160161 (ASCII)
+< parameter 3 >: reservation command, which can be customized according to customer needs.
+Example 1: p1c10t represents the to start the starting point of the first sequence of program 1. Where the first bit 1 of 10 in C10 represents the sequence number and 0 represents the sequence starting point.
+Example 2: p1c21t represents to start the trajectory of the second sequence of program 1. Where the first digit 2 of 21 in C21 represents the sequence number and 1 represents the sequence trajectory motion.
+Example 3: p3c71t represents to start the trajectory of the seventh sequence of the program 3.
+Special switch command: p1c200t represents stop.
+P1c201t represents return to zero.
+3. Data response
+If the data packet is correct, reply "good \ R \ n" Good indicates that the data is correct.
+If the packet is wrong, reply "error \ R \ n" Error indicates format error or data range is out of range.
+Exercise start: reply t (time) s \ R \ n indicates exercise time.
+End of movement: Reply "P (program) C (sequence) end \ R \ n" to indicate the end of movement.
+Example 1: t10.5s indicates that the sequence starts to move, and the estimated time is 10.5s.
+Example 2: p3c71end indicates the end of the trajectory movement of the seventh sequence of the start program 3.
+Common error format:
+Example 1: p1c2 \ R \ n forgetting to write “t” is an error.
+Example 2: p42c2t \ R \ n the range of parameter 1 is out of range.
+Example 3: p1sqc2it \ R \ n an error will also be returned if there are other undefined characters in the data.
+4. Data interval
+The packet transmission interval is about 25 milliseconds to 3 seconds. This type of communication does not require a large amount of bandwidth, but requires low latency. By default, the control card judges that the time interval for disconnection is 10 seconds.
+5. Confirmation of machine position number
+The slot number is determined by the port number bound by TCP / IP. Different port numbers correspond to different slots. Each robot device can set a unique port number.
 
 
 
@@ -69,41 +107,3 @@ seeder软件场景远程控制协议
 
 
 
-EN:
-------Hangzhou jushitong Network Technology Co., Ltd. copyright v1.5
-Remote control protocol of seeder software scene
-1、 Protocol type: TCP / IP network protocol connection
-Remote: client (external control device)
-Local: server (seeder robot)
-Binding port: default (5000) adjustable in the seeder software interface
-Note: different robot devices correspond to different ports
-2、 Agreement rules
-1. Keep your heart beating
-Function: judge whether the two parties are connected.
-Content: send the "heart \ R \ n" character back and forth to keep the heartbeat. The robot device sends the character 'heart \ R \ n' by default.
-2. Data format:
-Packet: P < parameter 1 > C < parameter 2 > T < parameter 3 > \ R \ n (ASCII)
-Description: the data packet starts with 'p', ends with a carriage return character ('\ R') and a line feed character ('\ n'), and takes the characters' p ',' C 'and't' as the parameter intervals.
-< parameter 1 >: indicates the program number range: 1-32 (ASCII)
-< parameter 2 >: indicates the range of serial number: 10, 11, 20, 21..... 160161 (ASCII)
-< parameter 3 >: reservation command, which can be customized according to customer needs.
-Example 1: p1c10t represents the to start the starting point of the first sequence of program 1. Where the first bit 1 of 10 in C10 represents the sequence number and 0 represents the sequence starting point.
-Example 2: p1c21t represents to start the trajectory of the second sequence of program 1. Where the first digit 2 of 21 in C21 represents the sequence number and 1 represents the sequence trajectory motion.
-Example 3: p3c71t represents to start the trajectory of the seventh sequence of the program 3.
-Special switch command: p1c200t represents stop.
-P1c201t represents return to zero.
-3. Data response
-If the data packet is correct, reply "good \ R \ n" Good indicates that the data is correct.
-If the packet is wrong, reply "error \ R \ n" Error indicates format error or data range is out of range.
-Exercise start: reply t (time) s \ R \ n indicates exercise time.
-End of movement: Reply "P (program) C (sequence) end \ R \ n" to indicate the end of movement.
-Example 1: t10.5s indicates that the sequence starts to move, and the estimated time is 10.5s.
-Example 2: p3c71end indicates the end of the trajectory movement of the seventh sequence of the start program 3.
-Common error format:
-Example 1: p1c2 \ R \ n forgetting to write “t” is an error.
-Example 2: p42c2t \ R \ n the range of parameter 1 is out of range.
-Example 3: p1sqc2it \ R \ n an error will also be returned if there are other undefined characters in the data.
-4. Data interval
-The packet transmission interval is about 25 milliseconds to 3 seconds. This type of communication does not require a large amount of bandwidth, but requires low latency. By default, the control card judges that the time interval for disconnection is 10 seconds.
-5. Confirmation of machine position number
-The slot number is determined by the port number bound by TCP / IP. Different port numbers correspond to different slots. Each robot device can set a unique port number.
