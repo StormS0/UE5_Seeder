@@ -1,0 +1,26 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.0",
+	"FriendlyName": "Seeder",
+	"Description": "Seeder control software",
+	"Category": "Other",
+	"CreatedBy": "Seeder",
+	"CreatedByURL": "https://github.com/StormS0/UE5_Seeder",
+	"DocsURL": "https://github.com/StormS0/UE5_Seeder",
+	"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/c44a3a72878447b39bb4b5ca0d036c03",
+	"SupportURL": "https://www.seeder.com/product/product.php?class1=3&lang=cn",
+	"EngineVersion": "5.1.0",
+	"CanContainContent": false,
+	"Installed": true,
+	"Modules": [
+		{
+			"Name": "Seeder",
+			"Type": "Editor",
+			"LoadingPhase": "Default",
+			"PlatformAllowList": [
+				"Win64"
+			]
+		}
+	]
+}
