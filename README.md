@@ -16,8 +16,8 @@ If you click Start, it means sending p1c21t.
 
 
 
-EN:
-      ------Hangzhou jushitong Network Technology Co., Ltd. copyright v1.5
+EN:  
+      ------Hangzhou jushitong Network Technology Co., Ltd. copyright v1.5  
 Remote control protocol of seeder software scene
 1、 Protocol type: TCP / IP network protocol connection
 Remote: client (external control device)
@@ -66,8 +66,8 @@ The slot number is determined by the port number bound by TCP / IP. Different po
 
 
 
-      ------杭州聚视通网络技术有限公司版权所有V1.5
-seeder软件场景远程控制协议
+      ------杭州聚视通网络技术有限公司版权所有V1.5  
+seeder软件场景远程控制协议  
 一、协议类型：TCP/IP 网络协议连接
 远端：client （外部控制设备）
 本地：server （seeder机器人设备）
