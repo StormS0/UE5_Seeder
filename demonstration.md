@@ -1,4 +1,4 @@
-If you do not have a Sid device, you need to create a tcpserver. Then connect through the plug-in. Set the msg Example 1: MSG p1c2   . Click the button. Finally, the server will receive the corresponding information. This means that the plug-in works normally   
+If you do not have a Seeder device, you need to create a tcpserver. Then connect through the plug-in. Set the msg Example 1: MSG p1c2   . Click the button. Finally, the server will receive the corresponding information. This means that the plug-in works normally   
 If you click Ready, it means sending p1c20t.      
 If you click Start, it means sending p1c21t.      
 
